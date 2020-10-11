@@ -44,8 +44,8 @@ async function fetchLabels() {
   startGroup('Labels fetching')
 
   const token = getInput('token'),
-    rawResult = getInput('raw-result'),
-    addAliases = getInput('add-aliases')
+    rawResult = getInput('raw-result') == 'true',
+    addAliases = getInput('add-aliases') == 'true'
 
   const url = `https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/labels`,
     headers = token ? { Authorization: `token ${token}` } : undefined
