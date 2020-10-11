@@ -110,7 +110,7 @@ async function uploadResult(labels: Record<string, any>[]) {
 
   const response = await artifact
     .create()
-    .uploadArtifact('Label config', files, tempDir.name)
+    .uploadArtifact('Label config', files.map(f => path.join(tempDir.name, f)), tempDir.name)
     .catch(() => { throw 'Couldn\'t upload any file as artifact.' })
 
   if (response) {
