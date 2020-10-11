@@ -10,3 +10,11 @@ inputs:
   token:
     description: The token needed to fetch the labels on private repos
     required: false
+  raw-result:
+    description: Whether to upload the original response from the GitHub API
+    required: false
+    default: 'false'
+  add-aliases:
+    description: Whether to add an 'aliases' property to every label, so that it's easier to use as a EndBug/label-sync config file
+    required: false
+    default: 'true'
