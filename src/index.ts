@@ -106,17 +106,18 @@ async function uploadResult(labels: Record<string, any>[]) {
   // #region Artifact upload
   startGroup('Artifact upload')
   const files = ['labels.json', 'labels.yaml'].filter(f => !f.endsWith(errors[0]))
+  log.info(`Uploading ${files.length} file${files.length == 1 ? '' : 's'}: ${files.join(', ')}`)
 
   const response = await artifact
     .create()
     .uploadArtifact('Label config', files, tempDir.name)
-    .catch(() => log.fatal('Couldn\'t upload any file as artifact.'))
+    .catch(() => { throw 'Couldn\'t upload any file as artifact.' })
 
   if (response) {
     log.info('Artifact result: ' + JSON.stringify(response, null, 2))
 
     if (response.failedItems.length >= files.length)
-      log.fatal('Couldn\'t upload any file as artifact.')
+      throw 'Couldn\'t upload any file as artifact.'
     else if (response.failedItems.length == 1)
       log.error(`Couldn't upload ${response.failedItems[0]} as artifact.`)
     else
