@@ -30,6 +30,9 @@ const log = {
 })()
 
 function checkInputs() {
+  if (!getInput('token'))
+    log.warning('You\'re not passing any `token` option: if your repo is private the action will fail with a 404 error from the GitHub API.', false)
+
   if (!['true', 'false'].includes(getInput('raw-result')))
     throw 'The only values you can use for the `raw-result` option are `true` and `false`'
 
