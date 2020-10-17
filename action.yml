@@ -18,3 +18,7 @@ inputs:
     description: Whether to add an 'aliases' property to every label, so that it's easier to use as a EndBug/label-sync config file
     required: false
     default: 'true'
+
+branding:
+  icon: tag
+  color: blue
