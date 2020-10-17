@@ -1,4 +1,4 @@
-name: Label Sync
+name: Export Label Config
 description: An action that lets you generate a file containing your label settings for the current repo
 author: Federico Grandi <fgrandi30@gmail.com>
 
