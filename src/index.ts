@@ -58,7 +58,7 @@ async function fetchLabels() {
     headers = token ? { Authorization: `token ${token}` } : undefined
   log.info(`Using following URL: ${url}`)
 
-  const { data } = await axios.get(url, { headers })
+  const { data } = await axios.get(url, { headers, params: { per_page: 1000 } })
   if (!data || !(data instanceof Array))
     throw "Can't get label data from GitHub API"
 
