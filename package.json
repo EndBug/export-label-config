@@ -1,6 +1,6 @@
 {
   "name": "export-label-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An action that lets you generate a file containing your label settings for the current repo",
   "main": "lib/index.js",
   "scripts": {
