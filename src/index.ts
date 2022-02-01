@@ -25,7 +25,7 @@ const log = {
 
     log.success('Upload complete! You can find the results in the artifacts of this workflow run.')
   } catch (e) {
-    log.fatal(e)
+    log.fatal(e+'')
   }
 })()
 
